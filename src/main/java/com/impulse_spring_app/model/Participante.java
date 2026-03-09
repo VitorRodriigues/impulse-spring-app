@@ -6,17 +6,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "eventos")
-
+@Table(name = "participantes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Evento {
+public class Participante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,12 +22,8 @@ public class Evento {
 
     private String nome;
 
-    private LocalDate data;
+    private String email;
 
-    private String local;
-
-    private Integer capacidade;
-
-    @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "participante", cascade = CascadeType.ALL)
     private List<VendaIngresso> vendas;
 }
