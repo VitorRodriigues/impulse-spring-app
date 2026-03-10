@@ -1,7 +1,6 @@
 package com.impulse_spring_app.controller;
 
-import com.impulse_spring_app.dto.EventoRequestDTO;
-import com.impulse_spring_app.dto.EventoResponseDTO;
+import com.impulse_spring_app.dto.EventoDTO;
 import com.impulse_spring_app.service.EventoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,20 +17,20 @@ public class EventoController {
     private final EventoService service;
 
     @GetMapping
-    public ResponseEntity<Page<EventoResponseDTO>> listar(Pageable pageable) {
+    public ResponseEntity<Page<EventoDTO>> listar(Pageable pageable) {
 
         return ResponseEntity.ok(service.listar(pageable));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EventoResponseDTO> buscar(@PathVariable Long id) {
+    public ResponseEntity<EventoDTO> buscar(@PathVariable Long id) {
 
         return ResponseEntity.ok(service.buscar(id));
     }
 
     @PostMapping
-    public ResponseEntity<EventoResponseDTO> criar(
-            @Valid @RequestBody EventoRequestDTO dto) {
+    public ResponseEntity<EventoDTO> criar(
+            @Valid @RequestBody EventoDTO dto) {
 
         return ResponseEntity
                 .status(201)
@@ -39,9 +38,9 @@ public class EventoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EventoResponseDTO> atualizar(
+    public ResponseEntity<EventoDTO> atualizar(
             @PathVariable Long id,
-            @Valid @RequestBody EventoRequestDTO dto) {
+            @Valid @RequestBody EventoDTO dto) {
 
         return ResponseEntity.ok(service.atualizar(id, dto));
     }

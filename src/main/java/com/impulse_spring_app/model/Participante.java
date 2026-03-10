@@ -1,11 +1,13 @@
 package com.impulse_spring_app.model;
 
+import com.impulse_spring_app.repository.VendaIngressoRepository;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,10 +22,12 @@ public class Participante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String nome;
 
+    @Column(nullable = false, unique = true)
     private String email;
 
     @OneToMany(mappedBy = "participante", cascade = CascadeType.ALL)
-    private List<VendaIngresso> vendas;
+    private List<VendaIngressoRepository> vendas = new ArrayList<>();
 }

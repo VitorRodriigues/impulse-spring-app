@@ -1,7 +1,6 @@
 package com.impulse_spring_app.service;
 
-import com.impulse_spring_app.dto.EventoRequestDTO;
-import com.impulse_spring_app.dto.EventoResponseDTO;
+import com.impulse_spring_app.dto.EventoDTO;
 import com.impulse_spring_app.exception.ResourceNotFoundException;
 import com.impulse_spring_app.mapper.EventoMapper;
 import com.impulse_spring_app.model.Evento;
@@ -18,13 +17,13 @@ public class EventoService {
     private final EventoRepository repository;
     private final EventoMapper mapper;
 
-    public Page<EventoResponseDTO> listar(Pageable pageable) {
+    public Page<EventoDTO> listar(Pageable pageable) {
 
         return repository.findAll(pageable)
                 .map(mapper::toDTO);
     }
 
-    public EventoResponseDTO buscar(Long id) {
+    public EventoDTO buscar(Long id) {
 
         Evento evento = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Evento não encontrado"));
@@ -32,14 +31,14 @@ public class EventoService {
         return mapper.toDTO(evento);
     }
 
-    public EventoResponseDTO criar(EventoRequestDTO dto) {
+    public EventoDTO criar(EventoDTO dto) {
 
         Evento evento = mapper.toEntity(dto);
 
         return mapper.toDTO(repository.save(evento));
     }
 
-    public EventoResponseDTO atualizar(Long id, EventoRequestDTO dto) {
+    public EventoDTO atualizar(Long id, EventoDTO dto) {
 
         Evento evento = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Evento não encontrado"));

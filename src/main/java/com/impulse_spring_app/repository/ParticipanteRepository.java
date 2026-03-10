@@ -1,11 +1,9 @@
 package com.impulse_spring_app.repository;
 
-import com.impulse_spring_app.model.Evento;
+import com.impulse_spring_app.model.Participante;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EventoRepository extends JpaRepository<Evento, Long> {
-
-
+public interface ParticipanteRepository extends JpaRepository<Participante, Long> {
 }
