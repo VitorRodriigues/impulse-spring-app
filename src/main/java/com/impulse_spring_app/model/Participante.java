@@ -29,5 +29,5 @@ public class Participante {
     private String email;
 
     @OneToMany(mappedBy = "participante", cascade = CascadeType.ALL)
-    private List<VendaIngressoRepository> vendas = new ArrayList<>();
+    private List<VendaIngresso> vendas = new ArrayList<>();
 }

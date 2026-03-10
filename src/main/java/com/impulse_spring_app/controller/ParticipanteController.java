@@ -3,21 +3,22 @@ package com.impulse_spring_app.controller;
 import com.impulse_spring_app.dto.CompraIngressoDTO;
 import com.impulse_spring_app.dto.ParticipanteDTO;
 import com.impulse_spring_app.dto.VendaIngressoDTO;
+import com.impulse_spring_app.mapper.EventoMapper;
 import com.impulse_spring_app.mapper.ParticipanteMapper;
-import com.impulse_spring_app.model.Evento;
 import com.impulse_spring_app.model.Participante;
 import com.impulse_spring_app.model.VendaIngresso;
 import com.impulse_spring_app.service.ParticipanteService;
 import com.impulse_spring_app.service.VendaIngressoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Tag(name = "ParticipanteController")
 @RestController
 @RequestMapping("/api/participantes")
 @RequiredArgsConstructor
@@ -26,7 +27,7 @@ public class ParticipanteController {
     private final ParticipanteService participanteService;
     private final VendaIngressoService vendaIngressoService;
     private final ParticipanteMapper participanteMapper;
-    private final VendaIngressoMapper vendaIngressoMapper;
+    private final EventoMapper.VendaIngressoMapper vendaIngressoMapper;
 
     @PostMapping
     public ResponseEntity<ParticipanteDTO> criarParticipante(@Valid @RequestBody ParticipanteDTO dto){

@@ -2,6 +2,7 @@ package com.impulse_spring_app.controller;
 
 import com.impulse_spring_app.dto.EventoDTO;
 import com.impulse_spring_app.service.EventoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -9,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "EventoController")
 @RestController
 @RequestMapping("/api/eventos")
 @RequiredArgsConstructor
