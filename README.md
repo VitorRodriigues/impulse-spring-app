@@ -340,9 +340,12 @@ http://localhost:8080
 
 Possíveis evoluções do projeto:
 
+* Documentação da API com **Swagger/OpenAPI**
+* Paginação na listagem de eventos
 * Autenticação com **Spring Security**
 * Banco de dados **PostgreSQL**
 * Containerização com **Docker**
+* Estratégias avançadas de controle de concorrência
 
 ---
 
