@@ -340,12 +340,9 @@ http://localhost:8080
 
 Possíveis evoluções do projeto:
 
-* Documentação da API com **Swagger/OpenAPI**
-* Paginação na listagem de eventos
 * Autenticação com **Spring Security**
 * Banco de dados **PostgreSQL**
 * Containerização com **Docker**
-* Estratégias avançadas de controle de concorrência
 
 ---
 
@@ -359,7 +356,3 @@ Este projeto foi desenvolvido com foco em demonstrar:
 * implementação de regras de negócio
 * controle de concorrência com **Optimistic Lock**
 * qualidade de código através de **testes automatizados**
-
-💡 **Dica importante:** mencionar **Optimistic Lock em teste técnico de venda de ingressos é MUITO forte**, porque mostra que você pensou em **problema real de concorrência** (algo que muitos candidatos esquecem).
-
-Se quiser, posso também te mostrar **uma pequena frase extra que deixa o README ainda mais forte para recrutador (parece coisa de engenheiro sênior)**.
